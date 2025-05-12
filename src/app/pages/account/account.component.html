@@ -1,0 +1,36 @@
+<div class="h-screen flex items-center">
+    <div class="container max-xl: mx-auto my8 p-8 bg-white shadow-md rounded-md max-w-md">
+        <h1 class="text-2xl text-gray-600 font-bold mb-4 text-center">  <!-- Reduzi de text-3xl para text-2xl -->
+            <div *ngIf="accountDetail$ | async as user">
+                <div class="rounded-full bg-blue-500 my-4 text-3xl w-20 h-20 inline-flex items-center justify-center font-bold text-white">  <!-- Reduzi text-4xl para text-3xl e w-24/h-24 para w-20/h-20 -->
+                    {{user.fullName[0] | uppercase}}
+                </div>
+                
+                <hr class="py-3 border-slate-400">  <!-- Reduzi py-4 para py-3 -->
+                <div class="grid grid-cols-2 gap-3 text-sm">  <!-- Adicionei text-sm e reduzi gap-4 para gap-3 -->
+                    <div class="text-gray-600 font-bold">Full Name</div>
+                    <div class="text-gray-600 font-medium">{{user.fullName | titlecase}}</div>
+
+                    <div class="text-gray-600 font-bold">Email</div>
+                    <div class="text-gray-600 font-medium">{{user.email}}</div>
+
+                    <div class="text-gray-600 font-bold">Roles</div>
+                    <div>
+                        <ul class="flex gap-1 text-xs">
+                            <li *ngFor="let role of user.roles" class="bg-green-700 text-white rounded-md py-1 px-2">
+                                {{role}}
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Campos adicionais da imagem -->
+                    <div class="text-gray-600 font-bold">Phone</div>
+                    <div class="text-gray-600 font-medium"></div>
+
+                    <div class="text-gray-600 font-bold">Access Failed Count</div>
+                    <div class="text-gray-600 font-medium"></div>
+                </div>
+            </div>
+        </h1>
+    </div>
+</div>
